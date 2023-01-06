@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 13:31:36 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 15:10:55 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:27:00 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,23 @@ bool	check_sorted(t_list *a)
 			return (false);
 		a = a->next;
 	}
+	return (true);
+}
+
+static bool fill_stack_a(t_list *a, char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		if(!create_node(a, ft_atoi(array[i++])))
+		{
+			ft_free_array(array);
+			return (false);
+		}
+	}
+	ft_free_array(array);
 	return (true);
 }
 
@@ -49,7 +66,7 @@ int	main(int argc, char **argv)
 		return (0);
 	if (check_sorted(a) == true)
 	{
-		free_list(a, b); //implement this function
+		free_list(a, b);
 		return (1);
 	}
 	//firt step into sorting
