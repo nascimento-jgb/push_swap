@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_free_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 16:12:56 by jonascim         ###   ########.fr       */
+/*   Created: 2023/01/06 15:00:58 by jonascim          #+#    #+#             */
+/*   Updated: 2023/01/06 15:05:15 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-typedef struct s_list
+void	ft_free_array(char **array)
 {
-	int data;
-	struct s_list *next;
-}	t_list;
+	int	len;
+	int	i;
 
-#endif
+	len = 0;
+	while (array[len])
+		len++;
+	i = 0;
+	while (i < len)
+		ft_free(array[i++]);
+	ft_free(array);
+}

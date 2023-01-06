@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 16:12:56 by jonascim         ###   ########.fr       */
+/*   Created: 2022/10/31 16:41:51 by jonascim          #+#    #+#             */
+/*   Updated: 2022/11/16 11:13:46 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-typedef struct s_list
+t_list	*ft_lstlast(t_list *lst)
 {
-	int data;
-	struct s_list *next;
-}	t_list;
-
-#endif
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
+}

@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 16:12:56 by jonascim         ###   ########.fr       */
+/*   Created: 2022/10/31 17:18:58 by jonascim          #+#    #+#             */
+/*   Updated: 2022/10/31 18:31:23 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-typedef struct s_list
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	int data;
-	struct s_list *next;
-}	t_list;
+	t_list	*aux;
 
-#endif
+	if (lst == NULL || del == NULL)
+		return ;
+	while (*lst != NULL)
+	{
+		aux = (*lst)->next;
+		del((*lst)->content);
+		free(*lst);
+		*lst = aux;
+	}
+	*lst = NULL;
+}

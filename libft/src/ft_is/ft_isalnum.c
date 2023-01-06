@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 16:12:56 by jonascim         ###   ########.fr       */
+/*   Created: 2022/10/24 16:30:20 by jonascim          #+#    #+#             */
+/*   Updated: 2022/11/01 15:27:42 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-typedef struct s_list
+int	ft_isalnum(int c)
 {
-	int data;
-	struct s_list *next;
-}	t_list;
-
-#endif
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
+	return (0);
+}

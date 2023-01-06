@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 16:12:56 by jonascim         ###   ########.fr       */
+/*   Created: 2022/10/25 10:00:38 by jonascim          #+#    #+#             */
+/*   Updated: 2022/10/31 09:44:26 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-typedef struct s_list
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int data;
-	struct s_list *next;
-}	t_list;
+	char	*auxdst;
+	char	*auxsrc;
 
-#endif
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	auxdst = (char *)dst;
+	auxsrc = (char *)src;
+	if (auxdst > auxsrc)
+		while (len--)
+			auxdst[len] = auxsrc[len];
+	else
+		while (len--)
+			*(auxdst++) = *(auxsrc++);
+	return (dst);
+}

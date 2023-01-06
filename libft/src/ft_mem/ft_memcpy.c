@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 16:12:56 by jonascim         ###   ########.fr       */
+/*   Created: 2022/10/25 09:40:24 by jonascim          #+#    #+#             */
+/*   Updated: 2022/10/31 13:48:03 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-typedef struct s_list
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int data;
-	struct s_list *next;
-}	t_list;
+	char		*auxdst;
+	const char	*auxsrc;
 
-#endif
+	if (!dst && !src && n > 0)
+		return (dst);
+	auxdst = dst;
+	auxsrc = src;
+	while (n)
+	{
+		*auxdst++ = *auxsrc++;
+		n--;
+	}
+	return (dst);
+}

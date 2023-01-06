@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 16:12:56 by jonascim         ###   ########.fr       */
+/*   Created: 2022/10/26 16:49:27 by jonascim          #+#    #+#             */
+/*   Updated: 2022/10/31 12:58:26 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-typedef struct s_list
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int data;
-	struct s_list *next;
-}	t_list;
+	char	*aux;
+	int		len;
+	int		i;
 
-#endif
+	if (s == NULL || f == NULL)
+		return (NULL);
+	len = ft_strlen(s);
+	aux = (char *)malloc(len + 1);
+	if (aux == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		aux[i] = (*f)(i, s[i]);
+		i++;
+	}
+	aux[i] = '\0';
+	return (aux);
+}

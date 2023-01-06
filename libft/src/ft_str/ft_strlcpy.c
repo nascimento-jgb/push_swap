@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 16:12:56 by jonascim         ###   ########.fr       */
+/*   Created: 2022/10/25 10:19:00 by jonascim          #+#    #+#             */
+/*   Updated: 2022/11/01 13:56:34 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-typedef struct s_list
+size_t	ft_strlcpy(char *dst, const char *src,
+size_t dst_size)
 {
-	int data;
-	struct s_list *next;
-}	t_list;
+	size_t	len;
 
-#endif
+	len = ft_strlen(src);
+	if (dst_size == 0)
+		return (len);
+	while (--dst_size > 0)
+	{
+		if (!*src)
+			break ;
+		*(dst++) = *(src++);
+	}
+	*dst = '\0';
+	return (len);
+}

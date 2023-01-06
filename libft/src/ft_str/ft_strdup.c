@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 16:12:56 by jonascim         ###   ########.fr       */
+/*   Created: 2022/10/16 15:35:25 by joaonascime       #+#    #+#             */
+/*   Updated: 2022/10/31 18:12:28 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-typedef struct s_list
+char	*ft_strdup(const char *str)
 {
-	int data;
-	struct s_list *next;
-}	t_list;
+	int		lenght;
+	char	*aux;
 
-#endif
+	lenght = ft_strlen(str);
+	aux = (char *)malloc(sizeof(char) * (lenght + 1));
+	if (!aux)
+		return (NULL);
+	lenght = 0;
+	while (str[lenght])
+	{
+		aux[lenght] = str[lenght];
+		lenght++;
+	}
+	aux[lenght] = '\0';
+	return (aux);
+}

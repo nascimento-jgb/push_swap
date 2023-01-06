@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 16:12:56 by jonascim         ###   ########.fr       */
+/*   Created: 2022/10/26 17:24:13 by jonascim          #+#    #+#             */
+/*   Updated: 2022/10/31 13:00:54 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-typedef struct s_list
+void	ft_striteri(char *s, void (*f)(unsigned int,
+char*))
 {
-	int data;
-	struct s_list *next;
-}	t_list;
+	int	len;
+	int	i;
 
-#endif
+	if (s == NULL || f == NULL)
+		return ;
+	i = 0;
+	len = ft_strlen(s);
+	while (i < len)
+	{
+		(*f)(i, &s[i]);
+		i++;
+	}
+}
