@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 13:31:36 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 17:27:00 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/07 17:08:11 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	check_sorted(t_list *a)
 	return (true);
 }
 
-static bool fill_stack_a(t_list *a, char **array)
+static bool	fill_stack_a(t_list *a, char **array)
 {
 	int	i;
 
@@ -55,11 +55,11 @@ int	main(int argc, char **argv)
 	if (argc != 1)
 	{
 		array = get_arguments(argc, argv);
-		// if check argumets OR fill stack A fails
+		if (!check_arguments(array) || !fill_stack_a(&a, array))
 		{
 			free_list(a, b);
 			ft_free_array(argv);
-			exit_failure("Error. \n");
+			exit_failure("Error.\n");
 		}
 	}
 	else
@@ -69,7 +69,7 @@ int	main(int argc, char **argv)
 		free_list(a, b);
 		return (1);
 	}
-	//firt step into sorting
+	//firt step into sorting (&a, &b)
 	free_list(a, b);
 	return (0);
 }

@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free                                            :+:      :+:    :+:   */
+/*   swap_op.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 14:58:56 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/07 11:19:05 by jonascim         ###   ########.fr       */
+/*   Created: 2023/01/07 15:15:22 by jonascim          #+#    #+#             */
+/*   Updated: 2023/01/07 17:08:10 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_free(void *element)
+void	swap(t_list *list, char *msg)
 {
-	if (element)
+	int	aux;
+
+	if (!list || !list->next)
+		return ;
+	else
 	{
-		free(element);
-		element = NULL;
+		aux = list->data;
+		list->data = list->next->data;
+		list->next->data = aux;
 	}
+	ft_putstr_fd(msg, 1);
+}
+
+void	double_swap(t_list *a, t_list *b)
+{
+	swap(a, "");
+	swap(b, "");
+	ft_putstr_fd("ss\n", 1);
 }

@@ -6,23 +6,23 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:16:22 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 17:25:09 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/07 15:15:12 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static char **oneline_arguments(char **argv)
+static char	**oneline_arguments(char **argv)
 {
 	char	**str;
 
-	str = ft_split(argv[1], ' '); // add ft_split
+	str = ft_split(argv[1], ' ');
 	if (!str)
-		exit_failure("Split failure.\n"); // create this function
+		exit_failure("Split failure.\n");
 	return (str);
 }
 
-static char **multiple_arguments(int argc, char **argv)
+static char	**multiple_arguments(int argc, char **argv)
 {
 	char	**str;
 	int		i;
@@ -36,7 +36,7 @@ static char **multiple_arguments(int argc, char **argv)
 		str[i] = ft_strdup(argv[i + 1]);
 		if (!str[i])
 		{
-			//implement function to free array
+			ft_free_array(str);
 			exit_failure("Strdup failure. \n");
 		}
 		i++;
@@ -45,7 +45,7 @@ static char **multiple_arguments(int argc, char **argv)
 	return (str);
 }
 
-char **get_arguments(int argc, char **argv)
+char	**get_arguments(int argc, char **argv)
 {
 	char *str;
 

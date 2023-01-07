@@ -6,13 +6,13 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:39:38 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 17:25:08 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/07 17:04:00 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void free_list(t_list *a, t_list *b)
+void	free_list(t_list *a, t_list *b)
 {
 	t_list	*aux;
 
@@ -44,7 +44,7 @@ int	size_list(t_list *list)
 	return (i);
 }
 
-static t_list *last_node(t_list *node)
+static t_list	*last_node(t_list *node)
 {
 	while (node->next)
 		node = node->next;

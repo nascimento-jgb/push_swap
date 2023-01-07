@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free                                            :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 14:58:56 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/07 11:19:05 by jonascim         ###   ########.fr       */
+/*   Created: 2023/01/07 11:06:40 by jonascim          #+#    #+#             */
+/*   Updated: 2023/01/07 11:15:45 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free(void *element)
+long	ft_atol(const char *ptr)
 {
-	if (element)
+	int		sign;
+	long	nbr;
+
+	sign = 1;
+	nbr = 0;
+	while (ft_is_space(*ptr))
+		ptr++;
+	if (*ptr == '-' || *ptr == '+')
 	{
-		free(element);
-		element = NULL;
+		if (*ptr == '-')
+			sign = -1;
+		ptr++;
 	}
+	while (*ptr >= '0' && *ptr <= '9')
+	{
+		nbr = (nbr * 10) + (*ptr - '0');
+		ptr++;
+	}
+	return (nbr * sign);
 }

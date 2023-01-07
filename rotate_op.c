@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   rotate_op.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/06 17:25:11 by jonascim         ###   ########.fr       */
+/*   Created: 2023/01/07 15:34:20 by jonascim          #+#    #+#             */
+/*   Updated: 2023/01/07 17:08:08 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-typedef struct s_list
+void	rotate(t_list **list, char *msg)
 {
-	int data;
-	struct s_list *next;
-}	t_list;
 
-#endif
+}
+
+void	double_rotate(t_list **a, t_list **b)
+{
+	rotate(a, "");
+	rotate(b, "");
+	ft_putstr_fd("rr\n", 1);
+}
