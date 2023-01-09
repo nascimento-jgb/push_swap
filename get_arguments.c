@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:16:22 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/07 15:15:12 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/09 14:26:30 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./includes/push_swap.h"
 
 static char	**oneline_arguments(char **argv)
 {
@@ -31,12 +31,12 @@ static char	**multiple_arguments(int argc, char **argv)
 	str = malloc(sizeof(char *) * argc);
 	if (!str)
 		exit_failure("Malloc failure.\n");
-	while (argv[i +1])
+	while (argv[i + 1])
 	{
 		str[i] = ft_strdup(argv[i + 1]);
 		if (!str[i])
 		{
-			ft_free_array(str);
+			ft_free_char_array(str);
 			exit_failure("Strdup failure. \n");
 		}
 		i++;
@@ -47,9 +47,9 @@ static char	**multiple_arguments(int argc, char **argv)
 
 char	**get_arguments(int argc, char **argv)
 {
-	char *str;
+	char **str;
 
-	if (argc ==2)
+	if (argc == 2)
 		str = oneline_arguments(argv);
 	else
 		str = multiple_arguments(argc, argv);

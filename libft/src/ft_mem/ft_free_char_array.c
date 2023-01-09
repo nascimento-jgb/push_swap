@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_free_char_array.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 17:59:47 by jonascim          #+#    #+#             */
-/*   Updated: 2022/11/16 11:13:44 by jonascim         ###   ########.fr       */
+/*   Created: 2023/01/06 15:00:58 by jonascim          #+#    #+#             */
+/*   Updated: 2023/01/09 13:50:52 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void*))
+void	ft_free_char_array(char **array)
 {
-	t_list	*new;
-	t_list	*res;
+	int	len;
+	int	i;
 
-	if (f == NULL || del == NULL)
-		return (NULL);
-	res = NULL;
-	while (lst)
-	{
-		new = ft_lstnew(f((*lst).content));
-		if (new == NULL)
-		{
-			ft_lstclear(&res, del);
-			break ;
-		}
-		ft_lstadd_back(&res, new);
-		lst = (*lst).next;
-	}
-	return (res);
+	len = 0;
+	while (array[len])
+		len++;
+	i = 0;
+	while (i < len)
+		ft_free(array[i++]);
+	ft_free(array);
 }

@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:39:38 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/07 17:04:00 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:59:29 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./includes/push_swap.h"
 
 void	free_list(t_list *a, t_list *b)
 {

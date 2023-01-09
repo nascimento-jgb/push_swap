@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 15:25:00 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/07 17:08:09 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:30:05 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./includes/push_swap.h"
 
 void	push(t_list **list_from, t_list **list_to, char *msg)
 {

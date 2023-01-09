@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:44:41 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/07 14:29:31 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/09 13:57:53 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "./includes/push_swap.h"
 
 static void	swap_position(long *a, long *b)
 {

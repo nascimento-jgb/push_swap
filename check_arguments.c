@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:36:15 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/07 17:04:00 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/09 14:27:37 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "includes/push_swap.h"
 
 static int	array_lenght(char **array)
 {
@@ -40,7 +40,7 @@ static bool	check_digits(char **array)
 				j++;
 				sign = true;
 			}
-			if(!ft_is_digit(array[i][j]))
+			if(!ft_isdigit(array[i][j]))
 				return (0);
 			j++;
 		}
@@ -71,21 +71,24 @@ bool	check_arguments(char **array)
 	if (!check_digits(array))
 		return (false);
 	i = 0;
-	str = malloc(sizeof(long) * lenght_array(array));
+	str = malloc(sizeof(long) * array_lenght(array));
 	if (!str)
+	{
+		free(str);
 		return (false);
+	}
 	while (array[i])
 	{
 		str[i] = ft_atol(array[i]);
 		if (str[i] > 2147483647 || str[i++] < -2147483648)
-			reteurn (false);
+			return (false);
 	}
+	quick_sort(str, 0 , i - 1);
 	if (!check_duplicates(str, i))
 	{
-		ft_free_array(str); // maybe only free (testing needed)
+		free(str);
 		return (false);
 	}
-	quick_sort (str, 0 , i - 1);
-	ft_free_array(str); // maybe only free (testing needed)
+	free(str);
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/07 17:08:52 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/09 14:24:22 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <limits.h>
 #include "libft.h"
 
-typedef struct s_list
+typedef struct	s_list
 {
-	int data;
+	int	data;
 	struct s_list *next;
 }	t_list;
 
@@ -63,5 +64,12 @@ void			rotate(t_list **list, char *msg);
 void			double_rotate(t_list **a, t_list **b);
 
 // reverese rotate
+void			reverse_rotate(t_list **list, char *msg);
+void			double_reverse_rotate(t_list **a, t_list **b);
+
+// sorting utils
+static int		find_largest(t_list *list);
+void			sorting_three_numbers(t_list **list);
+long			transfer_into_array(t_list *list, int len);
 
 #endif
