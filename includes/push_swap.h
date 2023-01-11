@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/09 14:24:22 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/10 07:07:31 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef struct	s_list
 {
-	int	data;
+	int data;
 	struct s_list *next;
 }	t_list;
 
