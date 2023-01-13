@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_op.c                                        :+:      :+:    :+:   */
+/*   push_op.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 15:34:20 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/09 13:57:49 by jonascim         ###   ########.fr       */
+/*   Created: 2023/01/07 15:25:00 by jonascim          #+#    #+#             */
+/*   Updated: 2023/01/13 11:47:25 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-void	rotate(t_list **list, char *msg)
+void	push(t_list **list_from, t_list **list_to, char *msg)
 {
-	t_list *aux;
-	t_list *aux2;
+	t_list	*aux;
 
-	if (!(*list) || !(*list)->next)
+	if (!(*list_from))
 		return ;
 	else
 	{
-		aux = *list;
-		aux2 = (*list)->next;
-		while ((*list)->next)
-			*list = (*list)->next;
-		(*list)->next = aux;
-		aux->next = NULL;
-		*list = aux2;
+		aux = *list_from;
+		*list_from = (*list_from)->next;
+		aux->next = *list_to;
+		*list_to = aux;
 	}
 	ft_putstr_fd(msg, 1);
-}
-
-void	double_rotate(t_list **a, t_list **b)
-{
-	rotate(a, "");
-	rotate(b, "");
-	ft_putstr_fd("rr\n", 1);
 }

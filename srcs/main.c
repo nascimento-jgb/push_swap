@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 13:31:36 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/09 14:25:00 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/13 11:59:10 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void	exit_failure(char *error)
 {
@@ -29,7 +29,7 @@ bool	check_sorted(t_list *a)
 	return (true);
 }
 
-static bool	fill_stack_a(t_list *a, char **array)
+static bool	fill_stack_a(t_list **a, char **array)
 {
 	int	i;
 
@@ -52,6 +52,8 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	t_list	*b;
 
+	a = NULL;
+	b = NULL;
 	if (argc != 1)
 	{
 		array = get_arguments(argc, argv);
@@ -69,7 +71,6 @@ int	main(int argc, char **argv)
 		free_list(a, b);
 		return (1);
 	}
-	//firt step into sorting (&a, &b)
+	first_phase_sort(&a, &b);
 	free_list(a, b);
-	return (0);
 }

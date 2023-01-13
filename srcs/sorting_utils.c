@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 10:22:01 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/09 14:02:26 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/13 11:47:36 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	find_largest(t_list *list)
 {
@@ -39,11 +39,12 @@ void	sorting_three_numbers(t_list **list)
 	}
 }
 
-long	transfer_into_array(t_list *list, int len)
+long	*transfer_into_array(t_list *list, int len)
 {
 	long	*array;
 	int		i;
 
+	i = 0;
 	array = malloc(sizeof(long) * len);
 	if (!array)
 		exit_failure("Malloc error.\n");

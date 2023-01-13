@@ -6,69 +6,72 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:37:54 by jonascim          #+#    #+#             */
-/*   Updated: 2022/11/01 15:48:19 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:26:41 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_words(const char *str, const char limit)
+static size_t	ft_countchar(const char *s, char c, int opt_delimit)
 {
-	const char	*aux;
-	int			counter;
+	size_t	i;
 
-	aux = str;
-	counter = 0;
-	while (*aux)
+	i = 0;
+	if (opt_delimit)
 	{
-		if (*aux != limit)
-			if (aux == str || *(aux - 1) == limit)
-				counter++;
-		aux++;
+		while (s[i] && s[i] != c)
+			i++;
 	}
-	return (counter);
+	else
+	{
+		while (s[i] && s[i] == c)
+			i++;
+	}
+	return (i);
 }
 
-static void	add_words(char **new, const char *str, char limit, int index)
+static size_t	ft_countword(const char *str, char c)
 {
-	const char	*aux;
-	const char	*start;
+	size_t	i;
+	size_t	nb_words;
 
-	aux = str;
-	while (*aux)
+	i = 0;
+	nb_words = 0;
+	while (str[i] && str[i] == c)
+		i++;
+	while (str[i])
 	{
-		if (*aux != limit)
-		{
-			if (aux == str || *(aux - 1) == limit)
-			{
-				start = aux;
-				while (*aux && *aux != limit)
-					aux++;
-				if (count_words(aux, limit) > 0)
-					add_words(new, aux, limit, index + 1);
-				new[index] = (char *)malloc(aux - start + 1);
-				if (new[index] != NULL)
-					ft_strlcpy(new[index], start, aux - start + 1);
-				return ;
-			}
-		}
-		else
-			aux++;
+		while (str[i] && str[i] != c)
+			i++;
+		nb_words++;
+		while (str[i] && str[i] == c)
+			i++;
 	}
+	return (nb_words);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**split;
-	size_t	aux;
+	char	**array;
+	size_t	nb_words;
+	size_t	i;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
-	aux = count_words(s, c);
-	split = (char **)malloc(sizeof(char *) * aux + 1);
-	if (split == NULL)
+	i = 0;
+	nb_words = ft_countword(s, c);
+	array = malloc((nb_words + 1) * sizeof(char *));
+	if (!array)
 		return (NULL);
-	split[aux] = NULL;
-	add_words(split, s, c, 0);
-	return (split);
+	while (i < nb_words)
+	{
+		s += ft_countchar(s, c, 0);
+		array[i] = ft_substr(s, 0, ft_countchar(s, c, 1));
+		if (!array[i])
+			return (NULL);
+		s += ft_countchar(s, c, 1) + ft_countchar(s, c, 0);
+		i++;
+	}
+	array[i] = NULL;
+	return (array);
 }

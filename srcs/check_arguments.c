@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:36:15 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/09 14:27:37 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/13 12:29:32 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	array_lenght(char **array)
 {
@@ -49,7 +49,7 @@ static bool	check_digits(char **array)
 	return (1);
 }
 
-static bool	check_duplicates(char *array, int lenght)
+static bool	check_duplicates(long *array, int lenght)
 {
 	int	i;
 
@@ -73,10 +73,7 @@ bool	check_arguments(char **array)
 	i = 0;
 	str = malloc(sizeof(long) * array_lenght(array));
 	if (!str)
-	{
-		free(str);
 		return (false);
-	}
 	while (array[i])
 	{
 		str[i] = ft_atol(array[i]);
