@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:06:43 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/13 11:47:18 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:29:24 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ static void	shortest_path_first_phase(t_list **a, t_list **b, int mid, int size)
 	bottom = 0;
 	array = transfer_into_array(*a, size);
 	while (array[i++] >= mid)
-		bottom++;
-	while (array[size--] >= mid)
 		top++;
+	while (array[--size] >= mid)
+		bottom++;
 	if (top <= bottom)
-		rotate_some_a(a, bottom, "ra\n");
+		rotate_some_a(a, top, "ra\n");
 	else
-		reverse_rotate_some_a(a, top, "rra\n");
+		reverse_rotate_some_a(a, bottom, "rra\n");
 	free(array);
 	array = NULL;
 	first_phase_push_to_b(a, b, mid);
@@ -59,13 +59,18 @@ void	first_phase_sort(t_list **a, t_list **b)
 	int	half_stack;
 
 	size_a = size_list(*a);
+	printf("hey22\n");
 	while (size_a > 3)
 	{
+		printf("hey23\n");
 		chunck_size = 0;
 		mid_value = find_mid_value(*a, size_a);
 		half_stack = size_a / 2;
+		printf("%d\n", half_stack);
+		printf("%d\n", size_a);
 		while (half_stack--)
 		{
+			printf("hey24\n");
 			if ((*a)->data < mid_value)
 				first_phase_push_to_b(a, b, mid_value);
 			else
@@ -74,6 +79,9 @@ void	first_phase_sort(t_list **a, t_list **b)
 		}
 		size_a = size_list(*a);
 	}
+	printf("hey4\n");
 	sorting_three_numbers(a);
+	printf("hey5\n");
 	second_phase_sorting(a, b);
+	printf("hey14\n");
 }

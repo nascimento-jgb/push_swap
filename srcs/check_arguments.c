@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:36:15 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/13 12:29:32 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:28:35 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static bool	check_digits(char **array)
 				j++;
 				sign = true;
 			}
-			if(!ft_isdigit(array[i][j]))
+			if (!ft_isdigit(array[i][j]))
 				return (0);
 			j++;
 		}

@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 10:22:01 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/13 11:47:36 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:16:56 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ void	sorting_three_numbers(t_list **list)
 {
 	while (check_sorted(*list) == false)
 	{
+		printf("hey20\n");
 		if ((*list)->data == find_largest(*list))
 			rotate(list, "ra\n");
 		else if ((*list)->data > (*list)->next->data)
 			swap(*list, "sa\n");
 		else
 			reverse_rotate(list, "rra\n");
+		printf("hey21\n");
 	}
 }
 
