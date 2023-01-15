@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:06:43 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/14 15:29:24 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:59:18 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,13 @@ void	first_phase_sort(t_list **a, t_list **b)
 	int	half_stack;
 
 	size_a = size_list(*a);
-	printf("hey22\n");
 	while (size_a > 3)
 	{
-		printf("hey23\n");
 		chunck_size = 0;
 		mid_value = find_mid_value(*a, size_a);
 		half_stack = size_a / 2;
-		printf("%d\n", half_stack);
-		printf("%d\n", size_a);
 		while (half_stack--)
 		{
-			printf("hey24\n");
 			if ((*a)->data < mid_value)
 				first_phase_push_to_b(a, b, mid_value);
 			else
@@ -79,9 +74,6 @@ void	first_phase_sort(t_list **a, t_list **b)
 		}
 		size_a = size_list(*a);
 	}
-	printf("hey4\n");
 	sorting_three_numbers(a);
-	printf("hey5\n");
 	second_phase_sorting(a, b);
-	printf("hey14\n");
 }

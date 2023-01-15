@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 09:42:22 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/14 15:32:50 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/15 15:02:35 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,26 +75,14 @@ void	second_phase_sorting(t_list **a, t_list **b)
 		aux.len = size_list(*b);
 		array = transfer_into_array(*b, aux.len);
 		quick_sort(array, 0, aux.len - 1);
-		printf("hey6\n");
 		aux.shortest_largest = select_largest(b, array[aux.len - 1], &aux, false);
 		if (aux.len != 1)
 			aux.shortest_2nd_largest = select_largest(b, array[aux.len - 2], &aux, true);
-		printf("hey7\n");
 		if (aux.shortest_2nd_largest < aux.shortest_largest)
-		{
-			printf("hey8\n");
 			push_second_largest(a, b, array[aux.len -1], &aux);
-			printf("hey9\n");
-		}
 		else
-		{
-			printf("hey10\n");
 			push_largest(a, b, array[aux.len -1], &aux);
-			printf("hey11\n");
-		}
-		printf("hey12\n");
-		while (array[i])
-			ft_free((void *)array[i++]);
-		printf("hey13\n");
+		free(array);
+		array = NULL;
 	}
 }

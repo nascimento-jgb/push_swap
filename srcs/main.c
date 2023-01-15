@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 13:31:36 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/14 15:28:37 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/15 14:59:12 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	exit_failure(char *error)
 {
 	ft_putstr_fd(error, 2);
-	exit(1);
+	exit(0);
 }
 
 bool	check_sorted(t_list *a)
@@ -51,6 +51,7 @@ int	main(int argc, char **argv)
 	char	**array;
 	t_list	*a;
 	t_list	*b;
+	int i = 0;
 
 	a = NULL;
 	b = NULL;
@@ -66,14 +67,11 @@ int	main(int argc, char **argv)
 	}
 	else
 		return (0);
-	printf("hey\n");
 	if (check_sorted(a) == true)
 	{
-		printf("hey2\n");
 		free_list(a, b);
 		return (0);
 	}
 	first_phase_sort(&a, &b);
-	printf("hey15\n");
 	free_list(a, b);
 }
