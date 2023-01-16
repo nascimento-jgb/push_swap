@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 09:42:22 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/15 15:02:35 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/16 07:58:47 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int	select_largest(t_list **b, int nbr, t_helper *aux, bool flag_to_2nd)
 				aux->reverse_flag = true;
 			return (bottom);
 		}
+	free(array);
+	array = NULL;
 }
 
 void	second_phase_sorting(t_list **a, t_list **b)
@@ -69,7 +71,7 @@ void	second_phase_sorting(t_list **a, t_list **b)
 	long		*array;
 	int			i;
 
-	while(*b)
+	while (*b)
 	{
 		ft_bzero(&aux, sizeof(t_helper));
 		aux.len = size_list(*b);
@@ -79,9 +81,9 @@ void	second_phase_sorting(t_list **a, t_list **b)
 		if (aux.len != 1)
 			aux.shortest_2nd_largest = select_largest(b, array[aux.len - 2], &aux, true);
 		if (aux.shortest_2nd_largest < aux.shortest_largest)
-			push_second_largest(a, b, array[aux.len -1], &aux);
+			push_second_largest(a, b, array[aux.len - 1], &aux);
 		else
-			push_largest(a, b, array[aux.len -1], &aux);
+			push_largest(a, b, array[aux.len - 1], &aux);
 		free(array);
 		array = NULL;
 	}

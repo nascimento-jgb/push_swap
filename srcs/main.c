@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 13:31:36 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/15 14:59:12 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/16 14:58:52 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	exit_failure(char *error)
 {
 	ft_putstr_fd(error, 2);
-	exit(0);
+	exit(1);
 }
 
 bool	check_sorted(t_list *a)
@@ -51,18 +51,17 @@ int	main(int argc, char **argv)
 	char	**array;
 	t_list	*a;
 	t_list	*b;
-	int i = 0;
 
 	a = NULL;
 	b = NULL;
-	if (argc != 1)
+	if (argc != 1 && ft_strncmp(argv[1], "", 1) != 0)
 	{
 		array = get_arguments(argc, argv);
 		if (!check_arguments(array) || !fill_stack_a(&a, array))
 		{
 			free_list(a, b);
 			ft_free_char_array(array);
-			exit_failure("Error checking arguments or filling the stack A.\n");
+			exit_failure("Error\n");
 		}
 	}
 	else

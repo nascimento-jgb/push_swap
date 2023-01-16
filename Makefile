@@ -6,7 +6,7 @@
 #    By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 20:00:04 by jonascim          #+#    #+#              #
-#    Updated: 2023/01/13 11:54:08 by jonascim         ###   ########.fr        #
+#    Updated: 2023/01/16 15:00:19 by jonascim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ all:		$(NAME)
 $(NAME):	$(SRC)
 			@make -C $(LIBFT)
 			@$(CC) -o $(NAME) $(SRC) -L. $(LIBFT)/libft.a
+##-fsanitize=address -static-libsan -g
 
 clean:
 			@make clean -C $(LIBFT)

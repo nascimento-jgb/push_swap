@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 10:22:01 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/15 14:59:17 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/16 08:02:09 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,13 @@ long	*transfer_into_array(t_list *list, int len)
 {
 	long	*array;
 	int		i;
+	int		aux_len;
 
 	i = 0;
-	array = malloc(sizeof(long) * len);
+	aux_len = len + 1;
+	array = malloc(sizeof(long) * aux_len);
 	if (!array)
-		exit_failure("Malloc error.\n");
+		exit_failure("Malloc error.");
 	while (list)
 	{
 		array[i++] = list->data;

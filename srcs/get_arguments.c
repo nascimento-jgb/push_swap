@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:16:22 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/15 15:02:03 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/16 15:00:34 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static char	**oneline_arguments(char **argv)
 
 	str = ft_split(argv[1], ' ');
 	if (!str)
-		exit_failure("Split failure.\n");
+		exit_failure("Split failure.");
 	return (str);
 }
 
@@ -30,14 +30,14 @@ static char	**multiple_arguments(int argc, char **argv)
 	i = 0;
 	str = malloc(sizeof(char *) * argc);
 	if (!str)
-		exit_failure("Malloc failure. \n");
+		exit_failure("Malloc failure.");
 	while (argv[i + 1])
 	{
 		str[i] = ft_strdup(argv[i + 1]);
 		if (!str[i])
 		{
 			ft_free_char_array(str);
-			exit_failure("Strdup failure. \n");
+			exit_failure("Strdup failure.");
 		}
 		i++;
 	}

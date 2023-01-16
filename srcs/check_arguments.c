@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:36:15 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/15 15:01:47 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/16 15:00:21 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,16 @@ static bool	check_digits(char **array)
 {
 	int		i;
 	int		j;
-	bool	sign;
 
 	i = 0;
-	sign = false;
 	while (array[i])
 	{
 		j = 0;
 		while (array[i][j])
 		{
-			if (array[i][0] == '-' && !sign)
-			{
-				j++;
-				sign = true;
-			}
-			if (!ft_isdigit(array[i][j]))
+			if ((array[i][j] == '-' && !ft_isdigit(array[i][j + 1])) ||
+			(array[i][j] == '+' && !ft_isdigit(array[i][j + 1])) ||
+			(!ft_isdigit(array[i][j]) && ft_isdigit(array[i][j - 1])))
 				return (0);
 			j++;
 		}
@@ -68,17 +63,21 @@ bool	check_arguments(char **array)
 	long	*str;
 	int		i;
 
+	i = 0;
 	if (!check_digits(array))
 		return (false);
-	i = 0;
 	str = malloc(sizeof(long) * array_lenght(array));
 	if (!str)
 		return (false);
+	i = 0;
 	while (array[i])
 	{
 		str[i] = ft_atol(array[i]);
 		if (str[i] > 2147483647 || str[i++] < -2147483648)
+		{
+			free(str);
 			return (false);
+		}
 	}
 	quick_sort(str, 0 , i - 1);
 	if (!check_duplicates(str, i))
