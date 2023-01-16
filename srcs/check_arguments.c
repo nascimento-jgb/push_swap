@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:36:15 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/16 15:00:21 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/16 16:02:18 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,12 @@ static bool	check_digits(char **array)
 		j = 0;
 		while (array[i][j])
 		{
+			if (ft_atoi(&array[i][j]) > 2147483647 || ft_atoi(&array[i][j]) < -2147483648)
+				return (0);
 			if ((array[i][j] == '-' && !ft_isdigit(array[i][j + 1])) ||
-			(array[i][j] == '+' && !ft_isdigit(array[i][j + 1])) ||
-			(!ft_isdigit(array[i][j]) && ft_isdigit(array[i][j - 1])))
+			(array[i][j] == '+' && !ft_isdigit(array[i][j + 1])))
+				return (0);
+			if (j >= 1 && !ft_isdigit(array[i][j]) && ft_isdigit(array[i][j - 1]))
 				return (0);
 			j++;
 		}
