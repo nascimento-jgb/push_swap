@@ -6,7 +6,7 @@
 #    By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/28 11:04:55 by jonascim          #+#    #+#              #
-#    Updated: 2023/01/16 09:51:53 by jonascim         ###   ########.fr        #
+#    Updated: 2023/01/17 10:56:40 by jonascim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ FTTO		=	ft_atoi ft_itoa ft_tolower ft_toupper ft_atol ft_is_space
 FTSTR_DIR	=	ft_str/
 FTSTR		=	ft_split ft_strchr ft_strdup ft_striteri ft_strjoin \
 				ft_strlcat ft_strlcpy ft_strlen ft_strmapi ft_strncmp \
-				ft_strnstr ft_strrchr ft_strtrim ft_substr
+				ft_strnstr ft_strrchr ft_strtrim ft_substr ft_strdel
 
 FTPRINTF_DIR	=	ft_printf/
 FTPRINTF		=	ft_hex_utils ft_printf_utils ft_printf ft_ptr_utils \

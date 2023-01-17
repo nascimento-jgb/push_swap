@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:39:38 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/16 14:46:32 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/17 13:50:00 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	free_list(t_list *a, t_list *b)
 {
@@ -35,7 +35,6 @@ int	size_list(t_list *list)
 	int	i;
 
 	i = 0;
-
 	while (list)
 	{
 		list = list->next;
@@ -53,8 +52,8 @@ static t_list	*last_node(t_list *node)
 
 bool	create_node(t_list **list, int number)
 {
-	t_list *new;
-	t_list *temp;
+	t_list	*new;
+	t_list	*temp;
 
 	temp = *list;
 	new = malloc(sizeof(t_list));

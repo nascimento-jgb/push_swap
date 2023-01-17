@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:44:41 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/13 11:47:27 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/17 15:05:33 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	swap_position(long *a, long *b)
 {
@@ -38,10 +38,9 @@ static int	partition(long *str, int lower, int higher)
 	}
 	swap_position(&str[i + 1], &str[higher]);
 	return (i + 1);
-
 }
 
-void	quick_sort(long *str, int lower, int higher)
+int	quick_sort(long *str, int lower, int higher)
 {
 	int	pivot;
 
@@ -51,4 +50,5 @@ void	quick_sort(long *str, int lower, int higher)
 		quick_sort(str, lower, pivot - 1);
 		quick_sort(str, pivot + 1, higher);
 	}
+	return (0);
 }

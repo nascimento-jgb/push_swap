@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 16:02:08 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/09 14:23:05 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/17 10:56:24 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ long	ft_atol(const char *ptr);
 int		ft_is_space(const char c);
 void	ft_free(void *element);
 void	ft_free_char_array(char **array);
+void	ft_strdel(char **s);
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 13:31:36 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/16 15:26:00 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/17 13:50:23 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	exit_failure(char *error)
 {
@@ -36,7 +36,7 @@ static bool	fill_stack_a(t_list **a, char **array)
 	i = 0;
 	while (array[i])
 	{
-		if(!create_node(a, ft_atoi(array[i++])))
+		if (!create_node(a, ft_atoi(array[i++])))
 		{
 			ft_free_char_array(array);
 			return (false);

@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:06:43 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/16 15:00:22 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/17 13:49:07 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	first_phase_push_to_b(t_list **a, t_list **b, int mid_value_a)
 {
@@ -69,7 +69,8 @@ void	first_phase_sort(t_list **a, t_list **b)
 			if ((*a)->data < mid_value)
 				first_phase_push_to_b(a, b, mid_value);
 			else
-				shortest_path_first_phase(a, b, mid_value, size_a - chunck_size);
+				shortest_path_first_phase(a, b, mid_value,
+					size_a - chunck_size);
 			chunck_size++;
 		}
 		size_a = size_list(*a);

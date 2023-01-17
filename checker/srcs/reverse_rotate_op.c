@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_op.c                                        :+:      :+:    :+:   */
+/*   reverse_rotate_op.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 15:34:20 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/13 11:47:30 by jonascim         ###   ########.fr       */
+/*   Created: 2023/01/09 10:22:51 by jonascim          #+#    #+#             */
+/*   Updated: 2023/01/17 15:33:20 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/checker.h"
 
-void	rotate(t_list **list, char *msg)
+void	reverse_rotate(t_list **list)
 {
-	t_list *aux;
-	t_list *aux2;
+	t_list	*aux;
+	t_list	*aux2;
 
 	if (!(*list) || !(*list)->next)
 		return ;
 	else
 	{
 		aux = *list;
-		aux2 = (*list)->next;
-		while ((*list)->next)
-			*list = (*list)->next;
-		(*list)->next = aux;
-		aux->next = NULL;
-		*list = aux2;
+		aux2 = *list;
+		while (aux->next)
+		{
+			if (aux->next->next)
+				aux2 = aux2->next;
+			aux = aux->next;
+		}
+		aux2->next = NULL;
+		aux->next = *list;
+		*list = aux;
 	}
-	ft_putstr_fd(msg, 1);
 }
 
-void	double_rotate(t_list **a, t_list **b)
+void	double_reverse_rotate(t_list **a, t_list **b)
 {
-	rotate(a, "");
-	rotate(b, "");
-	ft_putstr_fd("rr\n", 1);
+	reverse_rotate(a);
+	reverse_rotate(b);
 }

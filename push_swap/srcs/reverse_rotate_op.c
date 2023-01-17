@@ -6,16 +6,16 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 10:22:51 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/13 11:47:29 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/17 13:50:54 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	reverse_rotate(t_list **list, char *msg)
 {
-	t_list *aux;
-	t_list *aux2;
+	t_list	*aux;
+	t_list	*aux2;
 
 	if (!(*list) || !(*list)->next)
 		return ;

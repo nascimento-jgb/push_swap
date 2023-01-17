@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 09:24:52 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/13 11:47:32 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/17 07:52:58 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	rotate_some_b(t_list **b, int nbr)
 {

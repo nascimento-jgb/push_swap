@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:16:22 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/16 15:26:04 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/17 13:49:36 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static char	**oneline_arguments(char **argv)
 {
@@ -47,7 +47,7 @@ static char	**multiple_arguments(int argc, char **argv)
 
 char	**get_arguments(int argc, char **argv)
 {
-	char **str;
+	char	**str;
 
 	if (argc == 2)
 		str = oneline_arguments(argv);

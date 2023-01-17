@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 09:42:22 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/16 07:58:47 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/17 13:53:01 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	shortest_path_second_phase(t_list **b, int largest, int len)
 {
@@ -53,16 +53,15 @@ int	select_largest(t_list **b, int nbr, t_helper *aux, bool flag_to_2nd)
 	while (array[--aux->len] != nbr)
 		bottom++;
 	aux->len = temp_len;
-	if (top <= bottom) // maybe can be changed for <= lets wait for the tests
+	free(array);
+	if (top <= bottom)
 		return (top);
 	else
-		{
-			if (flag_to_2nd == true)
-				aux->reverse_flag = true;
-			return (bottom);
-		}
-	free(array);
-	array = NULL;
+	{
+		if (flag_to_2nd == true)
+			aux->reverse_flag = true;
+		return (bottom);
+	}
 }
 
 void	second_phase_sorting(t_list **a, t_list **b)
@@ -77,9 +76,11 @@ void	second_phase_sorting(t_list **a, t_list **b)
 		aux.len = size_list(*b);
 		array = transfer_into_array(*b, aux.len);
 		quick_sort(array, 0, aux.len - 1);
-		aux.shortest_largest = select_largest(b, array[aux.len - 1], &aux, false);
+		aux.shortest_largest = select_largest(b,
+				array[aux.len - 1], &aux, false);
 		if (aux.len != 1)
-			aux.shortest_2nd_largest = select_largest(b, array[aux.len - 2], &aux, true);
+			aux.shortest_2nd_largest = select_largest(b,
+					array[aux.len - 2], &aux, true);
 		if (aux.shortest_2nd_largest < aux.shortest_largest)
 			push_second_largest(a, b, array[aux.len - 1], &aux);
 		else

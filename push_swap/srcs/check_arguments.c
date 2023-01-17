@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:36:15 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/16 16:02:18 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/17 15:27:44 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static int	array_lenght(char **array)
 {
@@ -33,12 +33,14 @@ static bool	check_digits(char **array)
 		j = 0;
 		while (array[i][j])
 		{
-			if (ft_atoi(&array[i][j]) > 2147483647 || ft_atoi(&array[i][j]) < -2147483648)
+			if (ft_atoi(&array[i][j]) > 2147483647 ||
+			ft_atoi(&array[i][j]) < -2147483648)
 				return (0);
 			if ((array[i][j] == '-' && !ft_isdigit(array[i][j + 1])) ||
-			(array[i][j] == '+' && !ft_isdigit(array[i][j + 1])))
+				(array[i][j] == '+' && !ft_isdigit(array[i][j + 1])))
 				return (0);
-			if (j >= 1 && !ft_isdigit(array[i][j]) && ft_isdigit(array[i][j - 1]))
+			if (j >= 1 && !ft_isdigit(array[i][j]) &&
+			ft_isdigit(array[i][j - 1]))
 				return (0);
 			j++;
 		}
@@ -72,7 +74,6 @@ bool	check_arguments(char **array)
 	str = malloc(sizeof(long) * array_lenght(array));
 	if (!str)
 		return (false);
-	i = 0;
 	while (array[i])
 	{
 		str[i] = ft_atol(array[i]);
@@ -82,8 +83,7 @@ bool	check_arguments(char **array)
 			return (false);
 		}
 	}
-	quick_sort(str, 0 , i - 1);
-	if (!check_duplicates(str, i))
+	if (!quick_sort(str, 0, i - 1) && !check_duplicates(str, i))
 	{
 		free(str);
 		return (false);
