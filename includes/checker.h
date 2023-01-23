@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 11:07:49 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/17 15:37:33 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/23 10:30:45 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char			**get_arguments(int argc, char **argv);
 // check arguments
 static int		array_lenght(char **array);
 static bool		check_digits(char **array);
+static bool		check_boundaries(char **array);
 static bool		check_duplicates(long *array, int lenght);
 bool			check_arguments(char **array);
 

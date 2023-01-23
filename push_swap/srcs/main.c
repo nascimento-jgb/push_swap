@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 13:31:36 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/21 15:18:50 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/23 10:30:51 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc != 1 && ft_strncmp(argv[1], "", 1) != 0)
+	if (argc != 1 && ft_strncmp(argv[1], "", 1))
 	{
 		array = get_arguments(argc, argv);
 		if (!check_arguments(array) || !fill_stack_a(&a, array))

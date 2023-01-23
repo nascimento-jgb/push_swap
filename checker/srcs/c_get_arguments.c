@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:16:22 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/17 15:30:48 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/23 10:32:31 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static char	**oneline_arguments(char **argv)
 	char	**str;
 
 	str = ft_split(argv[1], ' ');
-	if (!str)
-		exit_failure("Split failure.");
+	if (!str || str[0] == NULL)
+		exit_failure("Error\n");
 	return (str);
 }
 

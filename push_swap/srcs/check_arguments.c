@@ -6,11 +6,33 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:36:15 by jonascim          #+#    #+#             */
-/*   Updated: 2023/01/17 15:27:44 by jonascim         ###   ########.fr       */
+/*   Updated: 2023/01/23 10:32:33 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+static bool	check_digits(char **array)
+{
+	int		i;
+	int		j;
+	bool	neg;
+
+	i = 0;
+	neg = false;
+	while (array[i])
+	{
+		j = 0;
+		while (array[i][j])
+		{
+			if (ft_isdigit(array[i][j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
 
 static int	array_lenght(char **array)
 {
@@ -22,7 +44,7 @@ static int	array_lenght(char **array)
 	return (i);
 }
 
-static bool	check_digits(char **array)
+static bool	check_boundaries(char **array)
 {
 	int		i;
 	int		j;
@@ -33,9 +55,6 @@ static bool	check_digits(char **array)
 		j = 0;
 		while (array[i][j])
 		{
-			if (ft_atoi(&array[i][j]) > 2147483647 ||
-			ft_atoi(&array[i][j]) < -2147483648)
-				return (0);
 			if ((array[i][j] == '-' && !ft_isdigit(array[i][j + 1])) ||
 				(array[i][j] == '+' && !ft_isdigit(array[i][j + 1])))
 				return (0);
@@ -69,7 +88,7 @@ bool	check_arguments(char **array)
 	int		i;
 
 	i = 0;
-	if (!check_digits(array))
+	if (check_digits(array) || !check_boundaries(array))
 		return (false);
 	str = malloc(sizeof(long) * array_lenght(array));
 	if (!str)
